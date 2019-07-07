@@ -1,0 +1,20 @@
+{
+  "name": "svelte-cli",
+  "version": "0.0.1",
+  "description": "A simple CLI for bootstrapping Svelte appplications.",
+  "main": "index.mjs",
+  "repository": "https://github.com/anthonypenna/svelte-cli",
+  "author": "anthonypenna",
+  "license": "MIT",
+  "private": false,
+  "bin": {
+    "svelte": "./src/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "svelte",
+    "cli"
+  ]
+}
