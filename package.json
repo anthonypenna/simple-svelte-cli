@@ -1,5 +1,5 @@
 {
-  "name": "@svelte/cli",
+  "name": "create-svelte-app",
   "version": "0.1.0",
   "description": "A simple CLI for bootstrapping Svelte appplications.",
   "main": "index.mjs",
