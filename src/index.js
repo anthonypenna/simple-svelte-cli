@@ -6,12 +6,10 @@ const print              = require('./lib/print')
 
 if (noArgumentsPassed()) {
   print(
-    'No arguments received.\r\n'        +
-    'For a list of available options, ' +
+    'No arguments received.\r\n' +
+    'For help regarding usage, ' +
     'enter "--help" or "-h" as arguments to the CLI.'
   )
-}
-
-if (helpArgumentPassed()) {
-  // ...
+} else if (helpArgumentPassed()) {
+  print('Usage: svelte create <project-name>')
 }
