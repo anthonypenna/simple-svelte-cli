@@ -1,3 +1,5 @@
+const getArguments = require('./getArguments')
+
 module.exports = function noArgumentsPassed() {
-  return process.argv.length <= 2 ? true : false
+  return getArguments().length === 0 ? true : false
 }

@@ -1,7 +1,10 @@
+const getArguments = require('./getArguments')
+
 module.exports = function createArgumentPassed() {
-  const arguments = process.argv
+  const arguments = getArguments()
+
   return (
     arguments.includes('create') && 
-    arguments.indexOf('create') === 2 ? true : false
+    arguments.indexOf('create') === 0 ? true : false
   )
 }

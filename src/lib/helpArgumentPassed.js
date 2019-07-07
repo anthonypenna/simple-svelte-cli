@@ -1,6 +1,10 @@
+const getArguments = require('./getArguments')
+
 module.exports = function helpArgumentPassed() {
+  const arguments = getArguments()
+
   return (
-    process.argv.includes('--help') ? true : 
-    process.argv.includes('-h')     ? true : false
+    arguments.includes('--help') ? true : 
+    arguments.includes('-h')     ? true : false
   )
 }
