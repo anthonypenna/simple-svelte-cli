@@ -2,6 +2,7 @@
 
 const printAndExit          = require('./lib/printAndExit')
 const noArgumentsPassed     = require('./lib/noArgumentsPassed')
+const createApplication     = require('./lib/createApplication')
 const helpArgumentPassed    = require('./lib/helpArgumentPassed')
 const createArgumentPassed  = require('./lib/createArgumentPassed')
 const logInvalidArgsAndExit = require('./lib/logInvalidArgsAndExit')
@@ -19,6 +20,6 @@ if (helpArgumentPassed())
   printAndExit(helpArgumentMessage)
 
 if (createArgumentPassed())
-  console.log('createeeeeee')
+  createApplication()
 
 else logInvalidArgsAndExit()
