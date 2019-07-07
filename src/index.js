@@ -6,11 +6,11 @@ const helpArgumentPassed    = require('./lib/helpArgumentPassed')
 const createArgumentPassed  = require('./lib/createArgumentPassed')
 const logInvalidArgsAndExit = require('./lib/logInvalidArgsAndExit')
 
-const noArgumentMessage   = 'No arguments received.\r\n' +
-                            'For help regarding usage, ' +
-                            'enter "--help" or "-h" as arguments to the CLI.'
+const noArgumentMessage     = 'No arguments received.\r\n' +
+                              'For help regarding usage, ' +
+                              'enter "--help" or "-h" as arguments to the CLI.'
 
-const helpArgumentMessage = 'Usage: svelte create <project-name>'
+const helpArgumentMessage   = 'Usage: svelte create <project-name>'
 
 if (noArgumentsPassed())
   printAndExit(noArgumentMessage)
