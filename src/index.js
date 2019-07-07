@@ -1,3 +1,4 @@
 #!/usr/bin/env node
 
-const print = require('./lib/print')
+const noArgumentsPassed = require('./lib/noArgumentsPassed')
+const print             = require('./lib/print')
