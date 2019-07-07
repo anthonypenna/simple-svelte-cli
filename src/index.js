@@ -1,36 +1,18 @@
 #!/usr/bin/env node
 
-const printAndExit            = require('./lib/printAndExit')
-const getArguments            = require('./lib/getArguments')
-const noArgumentsPassed       = require('./lib/noArgumentsPassed')
-const helpArgumentPassed      = require('./lib/helpArgumentPassed')
-const createArgumentPassed    = require('./lib/createArgumentPassed')
+const printAndExit          = require('./lib/printAndExit')
+const noArgumentsPassed     = require('./lib/noArgumentsPassed')
+const helpArgumentPassed    = require('./lib/helpArgumentPassed')
+const createArgumentPassed  = require('./lib/createArgumentPassed')
+const logInvalidArgsAndExit = require('./lib/logInvalidArgsAndExit')
 
-if (noArgumentsPassed()) {
-  printAndExit(
-    'No arguments received.\r\n' +
-    'For help regarding usage, ' +
-    'enter "--help" or "-h" as arguments to the CLI.'
-  )
-}
+const noArgumentMessage   = 'No arguments received.\r\n' +
+                            'For help regarding usage, ' +
+                            'enter "--help" or "-h" as arguments to the CLI.'
 
-if (helpArgumentPassed()) {
-  printAndExit(
-    'Usage: svelte create <project-name>'
-  )
-} 
+const helpArgumentMessage = 'Usage: svelte create <project-name>'
 
-if (createArgumentPassed()) {
-  // 
-} else {
-  const arguments = getArguments()
-  if (arguments.length === 1) {
-    printAndExit(
-      `Unknown argument: ${arguments[0]}`
-    )
-  } else {
-    printAndExit(
-      `Unknown arguments: ${arguments.join(', ')}`
-    )
-  }
-}
+if   (noArgumentsPassed())    printAndExit(noArgumentMessage)
+if   (helpArgumentPassed())   printAndExit(helpArgumentMessage)
+if   (createArgumentPassed()) console.log('createeeeeee')
+else logInvalidArgsAndExit()
