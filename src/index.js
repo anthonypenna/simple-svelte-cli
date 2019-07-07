@@ -12,7 +12,13 @@ const noArgumentMessage   = 'No arguments received.\r\n' +
 
 const helpArgumentMessage = 'Usage: svelte create <project-name>'
 
-if   (noArgumentsPassed())    printAndExit(noArgumentMessage)
-if   (helpArgumentPassed())   printAndExit(helpArgumentMessage)
-if   (createArgumentPassed()) console.log('createeeeeee')
+if (noArgumentsPassed())
+  printAndExit(noArgumentMessage)
+
+if (helpArgumentPassed())
+  printAndExit(helpArgumentMessage)
+
+if (createArgumentPassed())
+  console.log('createeeeeee')
+
 else logInvalidArgsAndExit()
