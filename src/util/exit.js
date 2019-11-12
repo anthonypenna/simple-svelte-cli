@@ -1,3 +1,3 @@
 module.exports = function exit() {
-  process.exit()
-}
+  process.exit();
+};

@@ -1,6 +1,6 @@
 {
   "name": "simple-svelte-cli",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A simple CLI for bootstrapping Svelte appplications.",
   "main": "index.mjs",
   "repository": "https://github.com/anthonypenna/svelte-cli",
@@ -16,5 +16,6 @@
   "keywords": [
     "svelte",
     "cli"
-  ]
+  ],
+  "dependencies": {}
 }

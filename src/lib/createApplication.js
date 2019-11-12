@@ -1,35 +1,25 @@
-const util         = require('util')
-const childProcess = require('child_process')
+const { print, printAndExit, run } = require("../util");
 
-const print        = require('./print')
-const clear        = require('./clear')
-const getArguments = require('./getArguments')
-const printAndExit = require('./printAndExit')
+module.exports = function createApplication(args) {
+  try {
+    /* extract project name from arguments */
+    const projectName = args[1];
+    print(`Creating new Svelte app: ${projectName}...`);
 
-module.exports = async function createApplication() {
-  const arguments = getArguments()
-  const projectName = arguments[1] || null
+    /* clone svelte starter template from github */
+    run(`npx degit sveltejs/template ${projectName}`);
 
-  if (arguments.length === 1)
-    printAndExit('Please specify a project name.')
+    /* enter project directory and install npm dependencies */
+    run(`cd ${projectName} && npm install`);
 
-  if (projectName) {
-    print(`Creating new Svelte app: ${projectName}...`)
-
-    try {
-      const exec = util.promisify(childProcess.exec)
-      await exec(`npx degit sveltejs/template ${projectName}`)
-
-      clear()
-      printAndExit(
-        `${projectName} successfully created.\r\n`     +
-        'To get up and running:              \r\n\r\n' +
-        `  cd ${projectName}                 \r\n`     +
-        '  npm install                       \r\n'     +
-        '  npm run dev                       \r\n'
-      )
-    } catch (error) {
-      throw new Error(error)
-    }
+    /* print success message and exit */
+    printAndExit(
+      `Successfully created "${projectName}". To get started: ` +
+        `\r\n- cd ${projectName}` +
+        `\r\n- npm run dev` +
+        `\r\n\r\nEnjoy!`
+    );
+  } catch ({ message }) {
+    printAndExit(message);
   }
-}
+};
