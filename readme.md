@@ -3,8 +3,13 @@ A simple CLI for bootstrapping Svelte apps.
 ___
 
 ## Installation
+*npm*
 ```sh
-npm install -g simple-svelte-cli
+npm add -g simple-svelte-cli
+```
+*yarn*
+```sh
+yarn global add simple-svelte-cli
 ```
 
 ## Usage
