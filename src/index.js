@@ -1,25 +1,13 @@
 #!/usr/bin/env node
+const { noArgs, helpArgs, createArgs, invalidArgs } = require("./lib");
+const { pipe } = require("./util");
 
-const printAndExit          = require('./lib/printAndExit')
-const noArgumentsPassed     = require('./lib/noArgumentsPassed')
-const createApplication     = require('./lib/createApplication')
-const helpArgumentPassed    = require('./lib/helpArgumentPassed')
-const createArgumentPassed  = require('./lib/createArgumentPassed')
-const logInvalidArgsAndExit = require('./lib/logInvalidArgsAndExit')
+main(process.argv);
 
-const noArgumentMessage     = 'No arguments received.\r\n' +
-                              'For help regarding usage, ' +
-                              'enter "--help" or "-h" as arguments to the CLI.'
+function main(args) {
+  /* nodejs process args start from index 2 */
+  const arguments = args.filter((_, index) => index >= 2);
 
-const helpArgumentMessage   = 'Usage: svelte create <project-name>'
-
-if (noArgumentsPassed())
-  printAndExit(noArgumentMessage)
-
-if (helpArgumentPassed())
-  printAndExit(helpArgumentMessage)
-
-if (createArgumentPassed())
-  createApplication()
-
-else logInvalidArgsAndExit()
+  /* pipe arguments through various validations */
+  pipe(noArgs, helpArgs, createArgs, invalidArgs)(arguments);
+}
