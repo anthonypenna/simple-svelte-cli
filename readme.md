@@ -5,14 +5,14 @@ ___
 ## Installation
 *npm*
 ```sh
-npm add -g simple-svelte-cli
+$ npm add -g simple-svelte-cli
 ```
 *yarn*
 ```sh
-yarn global add simple-svelte-cli
+$ yarn global add simple-svelte-cli
 ```
 
 ## Usage
 ```sh
-svelte create <project-name>
+$ svelte create <project-name>
 ```
