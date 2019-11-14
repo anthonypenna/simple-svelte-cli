@@ -11,6 +11,6 @@ module.exports = function task(command, options) {
 
     execAsync(command)
       .then(() => resolve(spinner.succeed(completed)))
-      .catch(({ message }) => spinner.fail(message));
+      .catch(({ message }) => reject(spinner.fail(message)));
   });
 };
