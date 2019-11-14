@@ -1,4 +1,4 @@
-const pipe = require("../pipe");
+const pipe = require("../../src/util/pipe");
 
 describe("pipe", () => {
   it("returns the correct value", () => {
@@ -25,7 +25,7 @@ describe("pipe", () => {
     sequence = pipe(
       str => str.indexOf("svelte"),
       num => num >= 0,
-      bool => (bool === true ? "Hello svelte!" : null)
+      bool => (bool ? "Hello svelte!" : null)
     );
 
     expect(sequence("greetings")).toBeNull();

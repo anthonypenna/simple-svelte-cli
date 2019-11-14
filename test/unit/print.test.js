@@ -1,4 +1,4 @@
-const print = require("../print");
+const print = require("../../src/util/print");
 
 describe("print", () => {
   const prefix = "[Svelte CLI]:";
