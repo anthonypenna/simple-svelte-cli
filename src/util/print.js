@@ -1,4 +1,8 @@
 module.exports = function print(message) {
+  if (!message || typeof message !== "string") {
+    throw new Error("Invalid argument: message");
+  }
+
   const fullMessage = `[Svelte CLI]: ${message}\r\n`;
   process.stdout.write(fullMessage);
 
