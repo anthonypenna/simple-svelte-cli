@@ -1,8 +1,7 @@
-const { print, printAndExit, run } = require("../util");
+const { print, printAndExit, task } = require("../util");
 
-module.exports = function createApplication(args) {
+module.exports = async function createApplication(args) {
   try {
-    /* extract project name from arguments */
     const projectName = args[1];
     const isSapper = args.find(arg => arg === "--ssr");
 
@@ -10,16 +9,25 @@ module.exports = function createApplication(args) {
       print(`Creating new Sapper app: ${projectName}...`);
 
       /* clone sapper starter template from github */
-      run(`npx degit "sveltejs/sapper-template#rollup" ${projectName}`);
+      await task(`npx degit "sveltejs/sapper-template#rollup" ${projectName}`, {
+        inProgress: "Downloading template...",
+        completed: "Done."
+      });
     } else {
       print(`Creating new Svelte app: ${projectName}...`);
 
       /* clone svelte starter template from github */
-      run(`npx degit sveltejs/template ${projectName}`);
+      await task(`npx degit sveltejs/template ${projectName}`, {
+        inProgress: "Downloading template...",
+        completed: "Done."
+      });
     }
 
     /* enter project directory and install npm dependencies */
-    run(`cd ${projectName} && npm install`);
+    await task(`cd ${projectName} && npm install`, {
+      inProgress: "Installing dependencies...",
+      completed: "Done."
+    });
 
     /* print success message and exit */
     printAndExit(
