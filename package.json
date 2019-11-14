@@ -24,5 +24,8 @@
   "scripts": {
     "test": "NODE_ENV=development jest --verbose --coverage",
     "test:watch": "NODE_ENV=development jest --verbose --coverage --watch"
+  },
+  "dependencies": {
+    "ora": "^4.0.3"
   }
 }
