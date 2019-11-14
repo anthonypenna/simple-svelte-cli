@@ -21,5 +21,15 @@ describe("pipe", () => {
     expect(sequence(1)).toBe(0);
     expect(sequence(5)).toBe(16);
     expect(sequence(7)).toBe(24);
+
+    sequence = pipe(
+      str => str.indexOf("svelte"),
+      num => num >= 0,
+      bool => (bool === true ? "Hello svelte!" : null)
+    );
+
+    expect(sequence("greetings")).toBeNull();
+    expect(sequence("yes")).toBeNull();
+    expect(sequence("we love svelte")).toBe("Hello svelte!");
   });
 });
